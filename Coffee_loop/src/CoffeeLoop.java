@@ -18,140 +18,152 @@ public class CoffeeLoop {
         array[4] = countOfMoney;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        boolean isTrue = true;
 
-        while(true) {
-            System.out.println("Write action (buy, fill, take, remain, exit):");
-            System.out.print(">");
+        while (isTrue) {
+            System.out.print("Write action (buy, fill, take, remain, exit):\n>");
             String action = reader.readLine();
-
-            if (action.equals("buy")) {
-                array = buy(array);
+            switch (action) {
+                case "buy":
+                    array = buy(array);
+                    break;
+                case "fill":
+                    array = fill(array);
+                    break;
+                case "take":
+                    array = take(array);
+                    break;
+                case "remain":
+                    array = remain(array);
+                    break;
+                case "exit":
+                    exit();
+                    isTrue = false;
+                    break;
             }
-
-            if (action.equals("fill")) {
-
-                array = fill(array);
-            }
-            if (action.equals("take")) {
-                array = take(array);
-            }
-            if (action.equals("remain")) {
-                array = remain(array);
-            }
-            if (action.equals("exit")) {
-                exit();
-                break;
-            }
-
         }
 
-        reader.close();
     }
     public static int[]  buy(int[] array1) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
-        System.out.print(">");
+        System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
         String number = reader.readLine();
-        //reader.close();
-        if(number.equals("1")){
-
-            if(array1[0] < 250)
-            {
-                System.out.println("Sorry, not enough water!");
-            }
-            else if(array1[2] < 16)
-            {
-                System.out.println("Sorry, not enough coffee beans!");
-            }
-            else
-            {
-                System.out.println("I have enough resources, making you a coffee!");
-                array1[0] -= 250;
-                array1[2] -= 16;
-                array1[3] -= 1;
-                array1[4] += 4;
-            }
+        switch(Integer.parseInt(number)){
+            case 1:
+                espresso(array1);
+                break;
+            case 2:
+                latte(array1);
+                break;
+            case 3:
+            cappuccino(array1);
+            break;
 
         }
-        if(number.equals("2"))
-        {
-            if(array1[0] < 350)
-            {
-                System.out.println("Sorry, not enough water!");
-            }
-            else if(array1[1] < 75)
-            {
-                System.out.println("Sorry, not enough milk!");
-            }
-            else if(array1[2] < 20)
-            {
-                System.out.println("Sorry, not enough coffee beans!");
-            }
-            else
-            {
-                System.out.println("I have enough resources, making you a coffee!");
-                array1[0] -= 350;
-                array1[1] -= 75;
-                array1[2] -= 20;
-                array1[3] -= 1;
-                array1[4] += 7;
-            }
-
-
-        }
-
-        if(number.equals("3"))
-        {
-            if(array1[0] < 200)
-            {
-                System.out.println("Sorry, not enough water!");
-            }
-            else if(array1[1] < 100)
-            {
-                System.out.println("Sorry, not enough milk!");
-            }
-            else if(array1[2] < 12)
-            {
-                System.out.println("Sorry, not enough coffee beans!");
-            }
-            else
-            {
-                System.out.println("I have enough resources, making you a coffee!");
-                array1[0] -= 200;
-                array1[1] -= 100;
-                array1[2] -= 12;
-                array1[3] -= 1;
-                array1[4] += 6;
-            }
-
-        }
-
-
         return array1;
+    }
+
+    public static void espresso(int[] array1){
+        int countOfWaterForEspresso = 250;
+        int countOfCoffeeBeansForEspresso = 16;
+        int countOfCupsForEspresso = 1;
+        int countOfMoneyForEspresso = 4;
+        if(array1[0] < countOfWaterForEspresso)
+        {
+            System.out.println("Sorry, not enough water!");
+        }
+        else if(array1[2] < countOfCoffeeBeansForEspresso)
+        {
+            System.out.println("Sorry, not enough coffee beans!");
+        }
+        else
+        {
+            System.out.println("I have enough resources, making you a coffee!");
+            array1[0] -= countOfWaterForEspresso;
+            array1[2] -= countOfCoffeeBeansForEspresso;
+            array1[3] -= countOfCupsForEspresso;
+            array1[4] += countOfMoneyForEspresso;
+        }
+
+    }
+
+    public static void latte(int[] array1){
+        int countOfWaterForLatte = 350;
+        int countOfMilkForLatte = 75;
+        int countOfCoffeeBeansForLatte = 20;
+        int countOfCupsForLatte = 1;
+        int countOfMoneyForLatte = 7;
+        if(array1[0] < countOfWaterForLatte)
+        {
+            System.out.println("Sorry, not enough water!");
+        }
+        else if(array1[1] < countOfMilkForLatte)
+        {
+            System.out.println("Sorry, not enough milk!");
+        }
+        else if(array1[2] < countOfCoffeeBeansForLatte)
+        {
+            System.out.println("Sorry, not enough coffee beans!");
+        }
+        else
+        {
+            System.out.println("I have enough resources, making you a coffee!");
+            array1[0] -= countOfWaterForLatte;
+            array1[1] -= countOfMilkForLatte;
+            array1[2] -= countOfCoffeeBeansForLatte;
+            array1[3] -= countOfCupsForLatte;
+            array1[4] += countOfMoneyForLatte;
+        }
+
+    }
+    public static void cappuccino(int[] array1){
+        int countOfWaterForCappuccino = 200;
+        int countOfMilkForCappuccino = 100;
+        int countOfCoffeeBeansForCappuccino = 12;
+        int countOfCupsForCappuccino = 1;
+        int countOfMoneyForCappuccino = 6;
+        if(array1[0] < countOfWaterForCappuccino)
+        {
+            System.out.println("Sorry, not enough water!");
+        }
+        else if(array1[1] < countOfMilkForCappuccino)
+        {
+            System.out.println("Sorry, not enough milk!");
+        }
+        else if(array1[2] < countOfCoffeeBeansForCappuccino)
+        {
+            System.out.println("Sorry, not enough coffee beans!");
+        }
+        else
+        {
+            System.out.println("I have enough resources, making you a coffee!");
+            array1[0] -= countOfWaterForCappuccino;
+            array1[1] -= countOfMilkForCappuccino;
+            array1[2] -= countOfCoffeeBeansForCappuccino;
+            array1[3] -= countOfCupsForCappuccino;
+            array1[4] += countOfMoneyForCappuccino;
+        }
+
     }
 
     public static int[]  fill(int[] array1) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Write how many ml of water do you want to add:");
-        System.out.print(">");
+        System.out.print("Write how many ml of water do you want to add:\n>");
         int countOfWater = Integer.parseInt(reader.readLine());
         System.out.println( countOfWater);
         array1[0] += countOfWater;
 
-        System.out.println("Write how many ml of milk do you want to add:");
-        System.out.print(">");
+        System.out.print("Write how many ml of milk do you want to add:\n>");
         int countOfMilk = Integer.parseInt(reader.readLine());
         System.out.println(countOfMilk);
         array1[1] +=  countOfMilk;
 
-        System.out.println("Write how many grams of coffee beans do you want to add:");
-        System.out.print(">");
+        System.out.print("Write how many grams of coffee beans do you want to add:\n>");
         int countOfCoffeeBeans = Integer.parseInt(reader.readLine());
         System.out.println(countOfCoffeeBeans);
         array1[2] += countOfCoffeeBeans;
 
-        System.out.println("Write how many disposable cups of coffee do you want to add:");
-        System.out.print(">");
+        System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
         int countOfCups = Integer.parseInt(reader.readLine());
         System.out.println(countOfCups);
         array1[3] += countOfCups;
@@ -162,8 +174,11 @@ public class CoffeeLoop {
     }
 
     public static int[]  take(int[] array1) throws IOException{
-        System.out.println("I gave you " + array1[4] );
-        array1[4] = 0;
+        int amountOfMoney = array1[4];
+        if(amountOfMoney != 0) {
+            System.out.println("I gave you " + amountOfMoney);
+            array1[4] = 0;
+        }else System.out.println("We don't have money for you:(");
         return array1;
     }
 
