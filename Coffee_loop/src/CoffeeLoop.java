@@ -168,7 +168,6 @@ public class CoffeeLoop {
         System.out.println(countOfCups);
         array1[3] += countOfCups;
 
-        //  reader.close();
 
         return array1;
     }
