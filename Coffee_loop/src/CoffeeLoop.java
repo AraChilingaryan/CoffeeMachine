@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CoffeeLoop {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         int countOfWater = 400;
         int countOfMilk = 540;
         int countOfCoffeeBeans = 120;
@@ -22,10 +22,14 @@ public class CoffeeLoop {
 
         while (isTrue) {
             System.out.print("Write action (buy, fill, take, remain, exit):\n>");
-            String action = reader.readLine();
+            String action = null;
+            try {
+                action = reader.readLine();
+
             switch (action) {
                 case "buy":
-                    array = buy(array);
+
+                        array = buy(array);
                     break;
                 case "fill":
                     array = fill(array);
@@ -40,14 +44,22 @@ public class CoffeeLoop {
                     exit();
                     isTrue = false;
                     break;
+               }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
     }
-    public static int[]  buy(int[] array1) throws IOException{
+    public static int[]  buy(int[] array1) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
-        String number = reader.readLine();
+        String number = null;
+        try {
+            number = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         switch(Integer.parseInt(number)){
             case 1:
                 espresso(array1);
@@ -146,25 +158,45 @@ public class CoffeeLoop {
 
     }
 
-    public static int[]  fill(int[] array1) throws IOException{
+    public static int[]  fill(int[] array1) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Write how many ml of water do you want to add:\n>");
-        int countOfWater = Integer.parseInt(reader.readLine());
+        int countOfWater = 0;
+        try {
+            countOfWater = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println( countOfWater);
         array1[0] += countOfWater;
 
         System.out.print("Write how many ml of milk do you want to add:\n>");
-        int countOfMilk = Integer.parseInt(reader.readLine());
+        int countOfMilk = 0;
+        try {
+            countOfMilk = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println(countOfMilk);
         array1[1] +=  countOfMilk;
 
         System.out.print("Write how many grams of coffee beans do you want to add:\n>");
-        int countOfCoffeeBeans = Integer.parseInt(reader.readLine());
+        int countOfCoffeeBeans = 0;
+        try {
+            countOfCoffeeBeans = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println(countOfCoffeeBeans);
         array1[2] += countOfCoffeeBeans;
 
         System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
-        int countOfCups = Integer.parseInt(reader.readLine());
+        int countOfCups = 0;
+        try {
+            countOfCups = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println(countOfCups);
         array1[3] += countOfCups;
 
