@@ -1,12 +1,9 @@
 public class HelloCoffee {
     public static void main(String[] args) {
-        System.out.println("Starting to make a coffee");
-        System.out.println("Grinding coffee beans");
-        System.out.println("Boiling water");
-        System.out.println("Mixing boiled water with crushed coffee beans");
-        System.out.println("Pouring coffee into the cup");
-        System.out.println("Pouring some milk into the cup");
-        System.out.println("Coffee is ready!");
+        System.out.println("Starting to make a coffee\n" + "Grinding coffee beans\n" + "Boiling water\n"
+        + "Mixing boiled water with crushed coffee beans\n" + "Pouring coffee into the cup\n" + "Pouring some milk into the cup\n"
+        + "Coffee is ready!");
+
 
     }
 }
