@@ -1,10 +1,6 @@
 /.idea/
-/Hello_Coffee/Hello_Coffee.iml
-/MachinesHaveNeeds/MachinesHaveNeeds.iml
+*.iml
 /out/production/MachinesHaveNeeds/
-/EnoughCoffee/EnoughCoffee.iml
-/Action/Action.iml
 /out/production/Action/
-/Coffee_loop/Coffee_loop.iml
 /out/production/Coffee_loop/
 /out/production/Hello_Coffee/
