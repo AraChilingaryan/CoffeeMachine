@@ -17,7 +17,6 @@ public class Action {
         System.out.println(countOfCoffeeBeans + " of coffee beans");
         System.out.println(countOfMoney + " of money");
         System.out.print("Write action (buy, fill, take):\n>");
-        //System.out.print(">");
         String action = reader.readLine();
         switch (action){
             case "buy":
