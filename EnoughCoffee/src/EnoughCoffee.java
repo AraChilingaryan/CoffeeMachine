@@ -11,6 +11,11 @@ public class EnoughCoffee {
         isEnough(array);
     }
 
+    /**
+     *
+     * @return array of min count of coffee that machine can do
+     * and out input how many cups we want
+     */
     public static int[] enoughCoffee() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<>();
