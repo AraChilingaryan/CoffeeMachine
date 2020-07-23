@@ -41,6 +41,10 @@ public class EnoughCoffee {
         return arrayOfArgument;
     }
 
+    /**
+     * prints if machine have enough resources and how many cups can make
+     *
+     */
     public static void isEnough(int[] array){
         if(array[0] < array[1]){
             System.out.println("No, I can make only " + array[0] + " cup(s) of coffee");
