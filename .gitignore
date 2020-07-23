@@ -1,6 +1,4 @@
 /.idea/
 *.iml
-/out/production/MachinesHaveNeeds/
-/out/production/Action/
-/out/production/Coffee_loop/
-/out/production/Hello_Coffee/
+/.out/
+
