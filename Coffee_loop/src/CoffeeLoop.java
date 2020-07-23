@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class CoffeeLoop {
     public static void main(String[] args)  {
@@ -17,19 +18,17 @@ public class CoffeeLoop {
         array[3] = countOfCups;
         array[4] = countOfMoney;
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+       Scanner scanner = new Scanner((System.in));
         boolean isTrue = true;
 
         while (isTrue) {
             System.out.print("Write action (buy, fill, take, remain, exit):\n>");
             String action = null;
-            try {
-                action = reader.readLine();
+                action = scanner.nextLine();
 
             switch (action) {
                 case "buy":
-
-                        array = buy(array);
+                    array = buy(array);
                     break;
                 case "fill":
                     array = fill(array);
@@ -44,9 +43,6 @@ public class CoffeeLoop {
                     exit();
                     isTrue = false;
                     break;
-               }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
 
@@ -159,52 +155,30 @@ public class CoffeeLoop {
     }
 
     public static int[]  fill(int[] array1) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scanner = new Scanner((System.in));
+
         System.out.print("Write how many ml of water do you want to add:\n>");
-        int countOfWater = 0;
-        try {
-            countOfWater = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println( countOfWater);
+        int countOfWater = scanner.nextInt();
         array1[0] += countOfWater;
 
         System.out.print("Write how many ml of milk do you want to add:\n>");
-        int countOfMilk = 0;
-        try {
-            countOfMilk = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(countOfMilk);
+        int countOfMilk = scanner.nextInt();
         array1[1] +=  countOfMilk;
 
         System.out.print("Write how many grams of coffee beans do you want to add:\n>");
-        int countOfCoffeeBeans = 0;
-        try {
-            countOfCoffeeBeans = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(countOfCoffeeBeans);
+
+        int countOfCoffeeBeans = scanner.nextInt();
         array1[2] += countOfCoffeeBeans;
 
         System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
-        int countOfCups = 0;
-        try {
-            countOfCups = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(countOfCups);
+        int countOfCups = scanner.nextInt();
         array1[3] += countOfCups;
 
 
         return array1;
     }
 
-    public static int[]  take(int[] array1) throws IOException{
+    public static int[]  take(int[] array1) {
         int amountOfMoney = array1[4];
         if(amountOfMoney != 0) {
             System.out.println("I gave you " + amountOfMoney);
@@ -213,7 +187,7 @@ public class CoffeeLoop {
         return array1;
     }
 
-    public static int[]  remain(int[] array1) throws IOException{
+    public static int[]  remain(int[] array1) {
         System.out.println("The coffee machine has:");
         System.out.println(array1[0] + " of water");
         System.out.println(array1[1] + " of milk");
