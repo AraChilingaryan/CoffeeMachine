@@ -34,6 +34,12 @@ public class Action {
         scanner.close();
 
     }
+
+    /**
+     * prints what we want to buy
+     * and call that method
+     *
+     */
     public static void buy(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups){
         Scanner scanner = new Scanner(System.in);
         System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n>");
@@ -53,6 +59,11 @@ public class Action {
         scanner.close();
 
     }
+
+    /**
+     * prints changes after buying espresso
+     *
+     */
     public static void espresso(int countOfWater, int countOfMilk,int countOfCoffeeBeans,int countOfCups, int countOfMoney){
         System.out.println("The coffee machine has:");
         System.out.println(countOfWater - 250 + " of water");
@@ -63,6 +74,11 @@ public class Action {
 
     }
 
+    /**
+     * prints changes after buying latte
+     *
+     */
+
     public static void latte(int countOfWater, int countOfMilk,int countOfCoffeeBeans,int countOfCups, int countOfMoney){
         System.out.println("The coffee machine has:");
         System.out.println(countOfWater - 350 + " of water");
@@ -71,6 +87,11 @@ public class Action {
         System.out.println(countOfCups - 1 + " of disposable cups");
         System.out.println(countOfMoney + 7 + " of money");
     }
+
+    /**
+     *prints changes after buying cappuccino
+     *
+     */
 
     public static void cappuccino(int countOfWater, int countOfMilk,int countOfCoffeeBeans,int countOfCups, int countOfMoney){
         System.out.println("The coffee machine has:");
@@ -81,6 +102,10 @@ public class Action {
         System.out.println(countOfMoney + 6 + " of money");
     }
 
+    /**
+     * prints what we add what it becomes after that
+     *
+     */
 
     public static void fill(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups) {
         Scanner scanner = new Scanner(System.in);
@@ -103,6 +128,11 @@ public class Action {
         scanner.close();
 
     }
+
+    /**
+     * prints how much money it gives us
+     * and what we have after that
+     */
 
     public static void take(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups){
         System.out.println("I gave you $550");
