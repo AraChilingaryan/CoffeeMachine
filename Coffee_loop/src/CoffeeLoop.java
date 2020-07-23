@@ -38,7 +38,6 @@ public class CoffeeLoop {
                             break;
                         case "exit":
                            exit();
-                            break;
                         }
 
         }
