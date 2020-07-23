@@ -1,23 +1,24 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Action {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         int countOfWater = 400;
         int countOfMilk = 540;
         int countOfCoffeeBeans = 120;
         int countOfMoney = 550;
         int countOfCups = 9;
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scanner = new Scanner(System.in);
         System.out.println("The coffee machine has:");
         System.out.println(countOfWater + " of water");
         System.out.println(countOfMilk + " of milk");
         System.out.println(countOfCoffeeBeans + " of coffee beans");
         System.out.println(countOfMoney + " of money");
         System.out.print("Write action (buy, fill, take):\n>");
-        String action = reader.readLine();
+        String action = scanner.nextLine();
         switch (action){
             case "buy":
                 buy(countOfWater,countOfMilk,countOfCoffeeBeans,countOfMoney,countOfCups);
@@ -30,16 +31,13 @@ public class Action {
                 break;
 
         }
-
-
-
-        reader.close();
+        scanner.close();
 
     }
-    public static void buy(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups) throws IOException{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void buy(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups){
+        Scanner scanner = new Scanner(System.in);
         System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n>");
-        String number = reader.readLine();
+        String number = scanner.nextLine();
         switch (Integer.parseInt(number)){
             case 1:
                 espresso(countOfWater, countOfMilk,countOfCoffeeBeans,countOfCups,countOfMoney);
@@ -52,7 +50,7 @@ public class Action {
                 break;
         }
 
-        reader.close();
+        scanner.close();
 
     }
     public static void espresso(int countOfWater, int countOfMilk,int countOfCoffeeBeans,int countOfCups, int countOfMoney){
@@ -84,16 +82,16 @@ public class Action {
     }
 
 
-    public static void fill(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups) throws IOException{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void fill(int countOfWater, int countOfMilk,int countOfCoffeeBeans, int countOfMoney,int countOfCups) {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Write how many ml of water do you want to add:\n>");
-           int countOfWater1 = Integer.parseInt(reader.readLine());
+           int countOfWater1 = Integer.parseInt(scanner.nextLine());
         System.out.print("Write how many ml of milk do you want to add:\n>");
-           int countOfMilk1 = Integer.parseInt(reader.readLine());
+           int countOfMilk1 = Integer.parseInt(scanner.nextLine());
         System.out.print("Write how many grams of coffee beans do you want to add:\n>");
-           int countOfCoffeeBeans1 = Integer.parseInt(reader.readLine());
+           int countOfCoffeeBeans1 = Integer.parseInt(scanner.nextLine());
         System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
-           int countOfCups1 = Integer.parseInt(reader.readLine());
+           int countOfCups1 = Integer.parseInt(scanner.nextLine());
 
         System.out.println("The coffee machine has:");
         System.out.println(countOfWater + countOfWater1 + " of water");
@@ -102,7 +100,7 @@ public class Action {
         System.out.println(countOfCups + countOfCups1 + " of disposable cups");
         System.out.println(countOfMoney + " of money");
 
-        reader.close();
+        scanner.close();
 
     }
 
