@@ -3,31 +3,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class EnoughCoffee {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int[] array = enoughCoffee();
         isEnough(array);
     }
 
-    public static int[] enoughCoffee() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    public static int[] enoughCoffee() {
+        Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<>();
 
         System.out.print("Write how many ml of water the coffee machine has:\n>");
-        list.add(Integer.parseInt(bufferedReader.readLine()) / 200);
+        list.add(Integer.parseInt(scanner.nextLine()) / 200);
 
         System.out.print("Write how many ml of milk the coffee machine has:\n>");
-        list.add(Integer.parseInt(bufferedReader.readLine()) / 50);
+        list.add(Integer.parseInt(scanner.nextLine()) / 50);
 
         System.out.print("Write how many grams of coffee beans the coffee machine has:\n>");
-        list.add(Integer.parseInt(bufferedReader.readLine()) / 15);
+        list.add(Integer.parseInt(scanner.nextLine()) / 15);
 
         System.out.print("Write how many cups of coffee you will need:\n>");
-        String count = bufferedReader.readLine();
+        String count = scanner.nextLine();
 
         Collections.sort(list);
-        bufferedReader.close();
+        scanner.close();
         int[] arrayOfArgument = new int[2];
         arrayOfArgument[0] = list.get(0);
         arrayOfArgument[1] = Integer.parseInt(count);
