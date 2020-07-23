@@ -16,34 +16,35 @@ public class CoffeeLoop {
         arrayOfIngredients[4] = countOfMoney;
 
        Scanner scanner = new Scanner((System.in));
-        boolean isTrue = true;
 
-        while (isTrue) {
-            System.out.print("Write action (buy, fill, take, remain, exit):\n>");
-            String action = null;
-                action = scanner.nextLine();
+        String action = "";
 
-            switch (action) {
-                case "buy":
-                    arrayOfIngredients = buy(arrayOfIngredients);
-                    break;
-                case "fill":
-                    arrayOfIngredients = fill(arrayOfIngredients);
-                    break;
-                case "take":
-                    arrayOfIngredients = take(arrayOfIngredients);
-                    break;
-                case "remain":
-                    arrayOfIngredients = remain(arrayOfIngredients);
-                    break;
-                case "exit":
-                    exit();
-                    isTrue = false;
-                    break;
-            }
+
+       while(!(action.equals("exit"))) {
+           System.out.print("Write action (buy, fill, take, remain, exit):\n>");
+           action = scanner.nextLine();
+           switch (action) {
+                        case "buy":
+                            arrayOfIngredients = buy(arrayOfIngredients);
+                            break;
+                        case "fill":
+                            arrayOfIngredients = fill(arrayOfIngredients);
+                            break;
+                        case "take":
+                            arrayOfIngredients = take(arrayOfIngredients);
+                            break;
+                        case "remain":
+                            arrayOfIngredients = remain(arrayOfIngredients);
+                            break;
+                        case "exit":
+                           exit();
+                            break;
+                        }
+
         }
 
     }
+
     /**
      * prints what kind of coffee hs machine
      * @return array of ingredients
@@ -236,7 +237,7 @@ public class CoffeeLoop {
      * and program finished with 0;
      */
     public static void exit(){
-        return;
+       return;
     }
 
 }
