@@ -14,3 +14,7 @@ At first machine prints how much water,milk,coffee,cups and money it has then th
 and you can choose what you want and for each one it prints some info
 # Coffee_Loop
 this class suggest you actions ,buy,fill, take, remain, exit and it prints this list of actions while you dont choose exit
+# CoffeeMachineStaes
+this class generalize CoffeeMachine's work,its very simple to use you need only input argument in one method
+at first  machine suggest actions you can choose what you want and after that follow the next steps the program will be ended
+when you choose exit from action list
