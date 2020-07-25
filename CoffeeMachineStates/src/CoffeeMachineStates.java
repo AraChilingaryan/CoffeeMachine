@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class CoffeeMachineStates {
-    int water = 400;
-    int milk = 540;
-    int coffeeBeans = 120;
-    int cups = 9;
-    int money = 550;
-    States state = States.READY;
+    private int water = 400;
+    private int milk = 540;
+    private int coffeeBeans = 120;
+    private int cups = 9;
+    private int money = 550;
+    private States state = States.READY;
     Scanner scanner = new Scanner(System.in);
 
     /**
