@@ -18,7 +18,7 @@ public class CoffeeMachineStates {
     private void action(String  action){
         boolean isDigit = isDigit(action);
 
-        if(action.equals("buy")){
+        if("buy".equals(action)){
             System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
             state = States.SELECTCOFFEE;
         }
@@ -28,7 +28,7 @@ public class CoffeeMachineStates {
             IsReady();
         }
 
-        if (action.equals("fill")) {
+        if ("fill".equals(action)) {
             System.out.print("Write how many ml of water do you want to add:\n>");
             state = States.FILLWATER;
         }
@@ -52,15 +52,15 @@ public class CoffeeMachineStates {
             cups += Integer.parseInt(action);
             IsReady();
         }
-        if (action.equals("take")) {
+        if ("take".equals(action)) {
             take();
             IsReady();
         }
-        if (action.equals("remain")) {
+        if ("remain".equals(action)) {
             remain();
             IsReady();
         }
-        if (action.equals("exit")) {
+        if ("exit".equals(action)) {
             exit();
         }
     }
