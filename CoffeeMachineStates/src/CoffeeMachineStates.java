@@ -17,52 +17,91 @@ public class CoffeeMachineStates {
      */
     private void action(String  action){
         boolean isDigit = isDigit(action);
-
-        if("buy".equals(action)){
-            System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
-            state = States.SELECTCOFFEE;
-        }
-
-        if(isDigit && state == States.SELECTCOFFEE) {
-            buy(Integer.parseInt(action));
-            IsReady();
-        }
-
-        if ("fill".equals(action)) {
-            System.out.print("Write how many ml of water do you want to add:\n>");
-            state = States.FILLWATER;
-        }
-        else if (isDigit && state == States.FILLWATER) {
-            water += Integer.parseInt(action);
-            state = States.FILLMILK;
-            System.out.print("Write how many ml of milk do you want to add:\n>");
+        if(!isDigit) {
+            this.state = correctState(action);
 
         }
-        else if (isDigit && state == States.FILLMILK) {
-            milk += Integer.parseInt(action);
-            state = States.FILLCOFFEE;
-            System.out.print("Write how many grams of coffee beans do you want to add:\n>");
+        switch (state){
+            case BUY:
+                System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
+                state = States.SELECTCOFFEE;
+                break;
+            case  SELECTCOFFEE:
+                buy(Integer.parseInt(action));
+                IsReady();
+                break;
+            case TAKE:
+                take();
+                IsReady();
+                break;
+            case REMAIN:
+                remain();
+                IsReady();
+                break;
+            case EXIT:
+                exit();
+                break;
         }
-        else if (isDigit && state == States.FILLCOFFEE) {
-            coffeeBeans += Integer.parseInt(action);
-            state = States.FILLCUPS;
-            System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
+
+        if ((state == States.FILL) || (state == States.FILLWATER) || (state == States.FILLCOFFEE) || (state == States.FILLMILK) || (state == States.FILLCUPS) ) {
+            fill(action, state);
         }
-        else if (isDigit && state == States.FILLCUPS) {
-            cups += Integer.parseInt(action);
-            IsReady();
+
+    }
+
+    /**
+     *this method returns us our choice changes to States
+     */
+    private States correctState(String action){
+        switch(action){
+            case "fill":
+                state = States.FILL;
+                break;
+            case "take":
+                state = States.TAKE;
+                break;
+            case "buy":
+                state = States.BUY;
+                break;
+            case "exit":
+                state = States.EXIT;
+                break;
+            case "remain":
+                state = States.REMAIN;
+                break;
         }
-        if ("take".equals(action)) {
-            take();
-            IsReady();
+        return  state;
+    }
+
+    /**
+     *this method prints what and how much we want to add
+     */
+    private void fill(String action, States state){
+        switch(state){
+            case FILL:
+                System.out.print("Write how many ml of water do you want to add:\n>");
+                this.state = States.FILLWATER;
+                break;
+            case FILLWATER:
+                water += Integer.parseInt(action);
+                System.out.print("Write how many ml of milk do you want to add:\n>");
+                this.state = States.FILLMILK;
+                break;
+            case FILLMILK:
+                milk += Integer.parseInt(action);
+                System.out.print("Write how many grams of coffee beans do you want to add:\n>");
+                this.state = States.FILLCOFFEE;
+                break;
+            case FILLCOFFEE:
+                coffeeBeans += Integer.parseInt(action);
+                System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
+                this.state = States.FILLCUPS;
+                break;
+            case FILLCUPS:
+                cups += Integer.parseInt(action);
+                IsReady();
         }
-        if ("remain".equals(action)) {
-            remain();
-            IsReady();
-        }
-        if ("exit".equals(action)) {
-            exit();
-        }
+
     }
 
     /**
@@ -191,8 +230,7 @@ public class CoffeeMachineStates {
     }
 
     /**
-     *return  boolean value if our input is digit
-
+     * @return boolean value if our input is digit
      */
     private boolean isDigit(String input){
         for (int i = 0; i < input.length(); ++i) {
@@ -235,13 +273,14 @@ public class CoffeeMachineStates {
 
 
     public static void main(String[] args)  {
-        CoffeeMachineStates coffeeMachineStates = new CoffeeMachineStates();
+        CoffeeMachineStates classLoop = new CoffeeMachineStates();
         System.out.print("Write action (buy, fill, take, remain, exit):\n>");
-        while(coffeeMachineStates.state != States.OFF){
-            coffeeMachineStates.action(coffeeMachineStates.scanner.nextLine());
+        while(classLoop.state != States.OFF){
+            classLoop.action(classLoop.scanner.nextLine());
         }
 
     }
 
 }
+
 

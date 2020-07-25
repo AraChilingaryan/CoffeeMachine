@@ -1,9 +1,22 @@
+
+/**
+ * this enum describes what kind of stated has our Coffee machine
+ */
+
 public enum States {
     OFF,
     READY,
-    SELECTCOFFEE,
+    FILL,
     FILLWATER,
     FILLMILK,
     FILLCOFFEE,
-    FILLCUPS
+    FILLCUPS,
+    SELECTCOFFEE,
+    BUY,
+    TAKE,
+    REMAIN,
+    EXIT
+
 }
+
+
