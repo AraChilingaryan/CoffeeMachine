@@ -6,7 +6,7 @@ public class CoffeeMachineStates {
     int coffeeBeans = 120;
     int cups = 9;
     int money = 550;
-    States state = States.Ready;
+    States state = States.READY;
     Scanner scanner = new Scanner(System.in);
 
     /**
@@ -20,35 +20,35 @@ public class CoffeeMachineStates {
 
         if(action.equals("buy")){
             System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n>");
-            state = States.SelectCoffee;
+            state = States.SELECTCOFFEE;
         }
 
-        if(isDigit && state == States.SelectCoffee) {
+        if(isDigit && state == States.SELECTCOFFEE) {
             buy(Integer.parseInt(action));
             IsReady();
         }
 
         if (action.equals("fill")) {
             System.out.print("Write how many ml of water do you want to add:\n>");
-            state = States.FillWater;
+            state = States.FILLWATER;
         }
-        else if (isDigit && state == States.FillWater) {
+        else if (isDigit && state == States.FILLWATER) {
             water += Integer.parseInt(action);
-            state = States.FillMilk;
+            state = States.FILLMILK;
             System.out.print("Write how many ml of milk do you want to add:\n>");
 
         }
-        else if (isDigit && state == States.FillMilk) {
+        else if (isDigit && state == States.FILLMILK) {
             milk += Integer.parseInt(action);
-            state = States.FillCoffee;
+            state = States.FILLCOFFEE;
             System.out.print("Write how many grams of coffee beans do you want to add:\n>");
         }
-        else if (isDigit && state == States.FillCoffee) {
+        else if (isDigit && state == States.FILLCOFFEE) {
             coffeeBeans += Integer.parseInt(action);
-            state = States.FillCups;
+            state = States.FILLCUPS;
             System.out.print("Write how many disposable cups of coffee do you want to add:\n>");
         }
-        else if (isDigit && state == States.FillCups) {
+        else if (isDigit && state == States.FILLCUPS) {
             cups += Integer.parseInt(action);
             IsReady();
         }
@@ -187,7 +187,7 @@ public class CoffeeMachineStates {
      */
     private void IsReady(){
         System.out.print("Write action (buy, fill, take, remain, exit):\n>");
-        state = States.Ready;
+        state = States.READY;
     }
 
     /**
@@ -230,14 +230,14 @@ public class CoffeeMachineStates {
      * changes state to off
      */
     private void exit(){
-        state = States.Off;
+        state = States.OFF;
     }
 
 
     public static void main(String[] args)  {
         CoffeeMachineStates coffeeMachineStates = new CoffeeMachineStates();
         System.out.print("Write action (buy, fill, take, remain, exit):\n>");
-        while(coffeeMachineStates.state != States.Off){
+        while(coffeeMachineStates.state != States.OFF){
             coffeeMachineStates.action(coffeeMachineStates.scanner.nextLine());
         }
 

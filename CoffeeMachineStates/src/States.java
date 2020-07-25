@@ -1,9 +1,9 @@
 public enum States {
-    Off,
-    Ready,
-    SelectCoffee,
-    FillWater,
-    FillMilk,
-    FillCoffee,
-    FillCups
+    OFF,
+    READY,
+    SELECTCOFFEE,
+    FILLWATER,
+    FILLMILK,
+    FILLCOFFEE,
+    FILLCUPS
 }
